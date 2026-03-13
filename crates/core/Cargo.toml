@@ -1,0 +1,17 @@
+[package]
+name = "stacks-indexer-core"
+description = "Core types, Clarity decoder, and event matching for the Stacks native indexer."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+serde_yaml = { workspace = true }
+tracing = { workspace = true }
+thiserror = { workspace = true }
+anyhow = { workspace = true }
+hex = "0.4"
+sha2 = "0.10"
