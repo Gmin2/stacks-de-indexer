@@ -1,0 +1,18 @@
+name: "devnet-explorer"
+network: devnet
+server:
+  event_listener_port: 20445
+  api_port: 4000
+storage:
+  path: "./data/devnet-explorer.db"
+sources:
+  - contract: "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.counter"
+    events:
+      - name: all_prints
+        type: print_event
+        table: contract_prints
+  - contract: "*"
+    events:
+      - name: stx_moves
+        type: stx_transfer
+        table: stx_transfers

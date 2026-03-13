@@ -1,0 +1,17 @@
+name: "testnet-replay"
+network: testnet
+server:
+  event_listener_port: 30445
+  api_port: 4000
+storage:
+  path: "./data/testnet-replay.db"
+sources:
+  - contract: "*"
+    start_block: 0
+    events:
+      - name: stx_transfers
+        type: stx_transfer
+        table: stx_transfers
+      - name: stx_mints
+        type: stx_mint
+        table: stx_mints
