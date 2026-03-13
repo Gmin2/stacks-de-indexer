@@ -1,0 +1,35 @@
+[package]
+name = "stacks-indexer"
+description = "High-performance native Stacks blockchain indexer — CLI binary."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "stacks-indexer"
+path = "src/main.rs"
+
+[[example]]
+name = "decode_clarity_value"
+path = "../../examples/decode_clarity_value.rs"
+
+[[example]]
+name = "parse_block_payload"
+path = "../../examples/parse_block_payload.rs"
+
+[[example]]
+name = "local_devnet"
+path = "../../examples/local_devnet.rs"
+
+[dependencies]
+stacks-indexer-core = { workspace = true }
+stacks-indexer-storage = { workspace = true }
+stacks-indexer-server = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+clap = { version = "4", features = ["derive"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+axum = { version = "0.8", features = ["ws"] }

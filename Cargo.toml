@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/core",
+    "crates/storage",
+    "crates/server",
+    "crates/cli",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+stacks-indexer-core = { path = "crates/core" }
+stacks-indexer-storage = { path = "crates/storage" }
+stacks-indexer-server = { path = "crates/server" }
+
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml = "0.9"
+
+tokio = { version = "1", features = ["full"] }
+
+tracing = "0.1"
+
+anyhow = "1"
+thiserror = "2"

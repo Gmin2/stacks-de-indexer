@@ -1,0 +1,22 @@
+[package]
+name = "stacks-indexer-server"
+description = "HTTP event listener, GraphQL API, and Prometheus metrics for the Stacks native indexer."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+stacks-indexer-core = { workspace = true }
+stacks-indexer-storage = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+anyhow = { workspace = true }
+tokio = { workspace = true }
+axum = { version = "0.8", features = ["ws"] }
+tower-http = { version = "0.6", features = ["cors"] }
+async-graphql = { version = "7", features = ["dynamic-schema"] }
+async-graphql-axum = "7"
+async-stream = "0.3"
+prometheus = "0.13"
