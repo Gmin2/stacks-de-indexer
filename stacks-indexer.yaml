@@ -1,0 +1,19 @@
+name: "stacks-indexer-demo"
+network: devnet
+server:
+  event_listener_port: 20445
+  api_port: 4000
+storage:
+  path: "./data/indexer.db"
+sources:
+  - contract: "SP2C2YFP12AJZB1.arkadiko-vault"
+    start_block: 34239
+    events:
+      - name: vault_created
+        type: print_event
+        table: vaults
+        indexes: ["owner", "vault-id"]
+      - name: stx_transfers
+        type: stx_transfer
+        table: stx_transfers
+        indexes: ["sender", "recipient"]
